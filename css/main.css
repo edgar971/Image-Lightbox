@@ -1,0 +1,366 @@
+@import url(plugins/reset.css);
+
+/* Import Erick Meyer Reset  */
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  background: #edffd2;
+  font-family: sans-serif;
+  line-height: 2em;
+  width: 90%;
+  padding: 5em 0;
+  margin: auto;
+}
+
+/* this wraps all the content 
+http://css-tricks.com/centering-in-the-unknown/ */
+
+#overlay:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+  background: red;
+}
+
+#overlay {
+  background: rgba(4, 4, 4, 0.85);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  /* actual modal window */
+}
+
+#overlay .loader {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#overlay .modal {
+  z-index: 10;
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-animation: fadeIn .5s ease, slideInLeft .5s ease-out;
+  animation: fadeIn .5s ease, slideInLeft .5s ease-out;
+  height: 480px;
+}
+
+#overlay .modal * {
+  height: 100%;
+}
+
+.fadeIn {
+  -webkit-animation: fadeIn .75s;
+  animation: fadeIn .75s;
+}
+
+/* using PSEUDO-ELEMENT  */
+
+.loader {
+  display: block;
+  background: rgba(255, 255, 255, 0.77);
+  width: 75px;
+  height: 75px;
+  margin: auto;
+  border-radius: 50%;
+  border: solid 5px #666666;
+  position: relative;
+  z-index: 11;
+}
+
+.loader:after {
+  content: " ";
+  position: absolute;
+  top: 46%;
+  width: 40px;
+  left: 50%;
+  height: 10px;
+  border-radius: 3px 50% 50% 3px;
+  background: #dcdcdc;
+  color: white;
+  z-index: 9;
+  -webkit-transform-origin: left;
+  -ms-transform-origin: left;
+  transform-origin: left;
+  -webkit-animation: 1s handRotate infinite linear;
+  animation: 1s handRotate infinite linear;
+}
+
+.loader:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -2.5%;
+  left: 45%;
+  width: 10px;
+  height: 40px;
+  border-radius: 50% 50% 3px 3px;
+  background: #858585;
+  color: white;
+  z-index: 9;
+  -webkit-transform-origin: bottom;
+  -ms-transform-origin: bottom;
+  transform-origin: bottom;
+  -webkit-animation: 10s handRotate infinite linear;
+  animation: 10s handRotate infinite linear;
+}
+
+/* better padding, margin  
+	http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+
+*/
+
+form {
+  width: 50%;
+  margin: auto;
+}
+
+form input {
+  width: 100%;
+  padding: 1em;
+  border: none;
+  font-size: 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+form input:focus {
+  outline: none;
+  background: #d6d6d6;
+  color: black;
+}
+
+/* vertical center using table like css 
+http://adamschwartz.co/magic-of-css/chapters/2-layout/
+ */
+
+.outer {
+  background: rgba(4, 4, 4, 0.85);
+  text-align: center;
+  display: table;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.outer .inner {
+  color: white;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 5%;
+}
+
+.outer .inner img {
+  width: 100%;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes handRotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes handRotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes flip {
+  0% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes flip {
+  0% {
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+@-webkit-keyframes scaleFX {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  90% {
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleFX {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+
+  90% {
+    -webkit-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    transform: scale(1.25);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes slideInLeft {
+  0% {
+    -webkit-transform: translateX(-25000px);
+    transform: translateX(-25000px);
+  }
+
+  90% {
+    -webkit-transform: translateX(150px);
+    transform: translateX(150px);
+  }
+
+  100% {
+    -webkit-transform: translateX(-300px);
+    transform: translateX(-300px);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    -webkit-transform: translateX(-25000px);
+    -ms-transform: translateX(-25000px);
+    transform: translateX(-25000px);
+  }
+
+  90% {
+    -webkit-transform: translateX(150px);
+    -ms-transform: translateX(150px);
+    transform: translateX(150px);
+  }
+
+  100% {
+    -webkit-transform: translateX(-300px);
+    -ms-transform: translateX(-300px);
+    transform: translateX(-300px);
+  }
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-1550px);
+    transform: translateY(-1550px);
+  }
+
+  90% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+
+  100% {
+    -webkit-transform: translateX(200px);
+    transform: translateX(200px);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-1550px);
+    -ms-transform: translateY(-1550px);
+    transform: translateY(-1550px);
+  }
+
+  90% {
+    -webkit-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+
+  100% {
+    -webkit-transform: translateX(200px);
+    -ms-transform: translateX(200px);
+    transform: translateX(200px);
+  }
+}
